@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mama Store Certificate Validation</title>
+
+<style>
+
+    body {
+        font-family: "Times New Roman", serif;
+        margin: 0;
+        padding: 0;
+        background-color: #F7EACD; /* Cream certificate background */
+        text-align: center;
+    }
+
+    /* Header */
+    .header {
+        background-color: #1B3B23; /* Dark green */
+        color: #D4C294; /* Gold text */
+        padding: 25px 15px;
+        width: 100%;
+        box-sizing: border-box;
+        border-bottom: 4px solid #988F69;
+    }
+
+    .header h1 {
+        margin: 0;
+        font-size: 2.4em;
+        letter-spacing: 1px;
+    }
+
+    .header p {
+        margin: 5px 0 0;
+        font-size: 1.2em;
+        color: #F7EACD;
+    }
+
+    /* Found text */
+    .found {
+        font-size: 2em;
+        margin: 25px 0;
+        color: #1B3B23;
+        font-weight: bold;
+    }
+
+    /* Bead image container */
+    .image-box {
+        background-color: #F2F0F1;
+        border: 3px solid #988F69;
+        display: inline-block;
+        padding: 15px;
+        border-radius: 6px;
+    }
+
+    .bead-image {
+        max-width: 200px;
+        display: block;
+        margin: auto;
+    }
+
+    /* Authentic stamp */
+    .authentic {
+        max-width: 280px;
+        margin: 20px auto;
+        display: block;
+    }
+
+    /* Details panel */
+    .details-container {
+        background-color: #1B3B23;
+        color: #F7EACD;
+        max-width: 500px;
+        margin: 25px auto;
+        padding: 25px;
+        border-radius: 8px;
+        border: 3px solid #988F69;
+        text-align: left;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .details-container p {
+        margin: 10px 0;
+        font-size: 1.1em;
+    }
+
+    .details-container strong {
+        color: #D4C294;
+    }
+
+    /* Footer */
+    .footer {
+        margin-top: 30px;
+        padding: 15px;
+        background-color: #1B3B23;
+        color: #D4C294;
+        font-size: 0.95em;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>MAMA STORE</h1>
+    <p>Rudraksha Certification Validation</p>
+</div>
+
+<div class="found">Certificate Verified ✓</div>
+
+<div class="image-box">
+    <img id="beadImage" class="bead-image" alt="Bead Image" src="" loading="lazy">
+</div>
+
+<img src="Authentic.jpg" alt="Authentic Stamp" class="authentic">
+
+<div class="details-container">
+
+    <p><strong>Certificate No:</strong> <span id="cert">Loading...</span></p>
+
+    <p><strong>Item Name:</strong> <span id="itemName">Natural Rudraksha</span></p>
+
+    <p><strong>Weight:</strong> <span id="weight">Loading...</span></p>
+
+    <p><strong>Shape:</strong> <span id="shape">Round</span></p>
+
+    <p><strong>Color:</strong> <span id="color">Brown</span></p>
+
+    <p><strong>Measurement:</strong> <span id="measurement">Loading...</span></p>
+
+    <p><strong>Mount:</strong> <span id="mount">Mounted</span></p>
+
+    <p><strong>Natural Faces:</strong> <span id="faces">Loading...</span></p>
+
+    <p><strong>X-Ray Result:</strong> <span id="xrays">Internally same structure</span></p>
+
+    <p><strong>Created Faces:</strong> <span id="createdFaces">None</span></p>
+
+    <p><strong>Test Method:</strong> <span id="test">Microscopic observation</span></p>
+
+    <p><strong>Comments:</strong> <span id="comments">Natural Rudraksha bead</span></p>
+
+</div>
+
+<div class="footer">
+    © Mama Store Rudraksha Certification System
+</div>
+
+
+<script>
+
+function getParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+/* Dynamic values */
+
+document.getElementById("cert").textContent =
+    getParam("cert") || "Not Provided";
+
+document.getElementById("weight").textContent =
+    getParam("weight") || "Not Provided";
+
+document.getElementById("measurement").textContent =
+    getParam("measurement") || "Not Provided";
+
+document.getElementById("faces").textContent =
+    getParam("faces") || "Not Provided";
+
+document.getElementById("itemName").textContent =
+    getParam("itemName") || "Natural Rudraksha";
+
+document.getElementById("shape").textContent =
+    getParam("shape") || "Round";
+
+document.getElementById("comments").textContent =
+    getParam("comments") || "Natural bead confirmed";
+
+document.getElementById("color").textContent =
+    getParam("color") || "Brown";
+
+document.getElementById("mount").textContent =
+    getParam("mount") || "Mounted";
+
+document.getElementById("xrays").textContent =
+    getParam("xrays") || "Internally same structure";
+
+document.getElementById("createdFaces").textContent =
+    getParam("createdFaces") || "None";
+
+document.getElementById("test").textContent =
+    getParam("test") || "Microscopic observation";
+
+
+/* Image */
+
+const beadFile = getParam("img");
+
+if (beadFile) {
+
+    const beadImg = document.getElementById("beadImage");
+
+    beadImg.src = beadFile;
+
+    beadImg.alt = "Rudraksha Image";
+
+} else {
+
+    document.getElementById("beadImage").style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>
